@@ -1,15 +1,12 @@
 
 import React from 'react';
-import {SafeAreaView} from 'react-native';
+import LoginStackNavigator from './src/navigator/LoginStackNavigator'
 
 
 const App = () => {
 
   return (
-    <SafeAreaView>
-      
-       
-    </SafeAreaView>
+    <LoginStackNavigator/>
   );
 };
 
