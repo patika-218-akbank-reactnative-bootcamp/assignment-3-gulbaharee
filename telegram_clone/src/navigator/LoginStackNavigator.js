@@ -12,7 +12,7 @@ const LoginStackNavigator = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen name='Login' options={{headerShown:false}} component={Login}/>
-        <Stack.Screen name='Home' component={Home}/>
+        <Stack.Screen name='Home' options={{headerShown:false}} component={Home}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

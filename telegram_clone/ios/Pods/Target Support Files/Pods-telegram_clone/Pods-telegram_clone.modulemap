@@ -1,0 +1,6 @@
+module Pods_telegram_clone {
+  umbrella header "Pods-telegram_clone-umbrella.h"
+
+  export *
+  module * { export * }
+}
