@@ -1,13 +1,29 @@
-import React, { useState } from 'react';
+import React, { useContext, useEffect, useState } from 'react';
 import { View, Text, StyleSheet, TextInput, Button } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Picker } from '@react-native-picker/picker';
 import CountryCodes from '../assets/countryCodes.json';
+import { UserContext } from '../contexts/user';
 
 const Login = () => {
     const { navigate } = useNavigation();
 
     const [selectedCode, setSelectedCode] = useState();
+    const {user,setUser}=useContext(UserContext);
+    const [userRegister,setUserRegister] = useState({id:null,firstName:"",lastName:"",userName:"",phoneNumber:""});
+    
+
+    const handleSubmit = (e)=>{
+        setUser({
+            id:1,
+            firstName:userRegister.firstName,
+            lastName:userRegister.lastName,
+            userName:userRegister.userName,
+            phoneNumber: userRegister.phoneNumber,
+        },[]);
+
+        navigate('Home');
+    }
     return (
         
         <View style={styles.container}>
@@ -18,21 +34,21 @@ const Login = () => {
                         <Picker.Item label={country.dial_code} value={country.dial_code} />
                     ))}
                 </Picker>
-                <TextInput placeholder="5xx xxx xx xx" style={styles.phoneInput} keyboardType="phone-pad" />
+                <TextInput placeholder="5xx xxx xx xx" style={styles.phoneInput} keyboardType="phone-pad" onChange={(item)=>setUserRegister(phoneNumber=item)} />
             </View>
             <View style={{marginTop:20}}>
                 <Text style={styles.text}>First Name</Text>
-                <TextInput style={styles.RegisterInfo} autoCapitalize="words"/>
+                <TextInput style={styles.RegisterInfo} autoCapitalize="words" onChange={(item)=>setUserRegister(firstName=item)}/>
             </View>
             <View style={{marginTop:20}}>
                 <Text style={styles.text}>Last Name</Text>
-                <TextInput style={styles.RegisterInfo} />
+                <TextInput style={styles.RegisterInfo} onChange={(item)=>setUserRegister(lastName=item)} />
             </View>
             <View style={{marginTop:20}}>
                 <Text style={styles.text}>Username</Text>
-                <TextInput style={styles.RegisterInfo} />
+                <TextInput style={styles.RegisterInfo} onChange={(item)=>setUserRegister(userName=item)} />
             </View>
-            <Button style={styles.button} title="Register" onPress={()=>navigate('Home')}/>
+            <Button style={styles.button} title="Register" onPress={()=>{handleSubmit()}}  />
         </View>
     )
 }
