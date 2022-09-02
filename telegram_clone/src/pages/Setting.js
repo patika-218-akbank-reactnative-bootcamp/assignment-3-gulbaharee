@@ -22,8 +22,8 @@ const Setting = () => {
             <View style={styles.container}>
                 <View style={styles.info}>
                     <Image source={{ uri: "https://picsum.photos/200/200" }} style={styles.userImage} />
-                    <Text style={styles.userName}>Gulbahar Erol</Text>
-                    <Text style={styles.userInfo}>xxx-xxx-xx-xx @username</Text>
+                    <Text style={styles.userName}>{user.firstName} {user.lastName}</Text>
+                    <Text style={styles.userInfo}>{user.phoneNumber} @{user.userName}</Text>
                 </View>
                 <View style={styles.settings}>
                     <Pressable style={styles.button} title='Theme' onPress={() => navigate('Theme')}>

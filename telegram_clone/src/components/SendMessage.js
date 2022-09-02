@@ -1,30 +1,22 @@
-import React from 'react';
+import React,{useState,useContext} from 'react';
 import { View, TextInput, StyleSheet, Image } from 'react-native';
 import IconEntypo from 'react-native-vector-icons/Entypo';
 import IconSimpleLineIcons from 'react-native-vector-icons/SimpleLineIcons';
+import IconIonicons from 'react-native-vector-icons/Ionicons';
+import { UserContext } from '../contexts/user';
+import { contactList } from '../assets/contactList';
+
 
 const SendMessage = ({ id }) => {
-    // // input için tuttuğunuz state
-    // const [message, setMessage] = useState("");
-    // // context erişimi (degişken isimleri farklı olabilir)
-    // const { users, setUsers } = useContext(UserContext)
+    const [message, setMessage] = useState("");
+    const { user, setUsers } = useContext(UserContext)
 
-    // // send message fonksiyonunun yapacağıni işlem, kurduğunuz yapıya göre değişebilir.
-    // const sendMessage = () => {
-    //     const newUsers = users.map(user => {
-    //         // {id: 1, username: "atakan", messages: []}
-    //         if (user.id === params.user.id) {
-    //             const newMessages = user.messages.push({ text: "Merhaba", date: new Date.now() })
-    //             return {
-    //                 ...user,
-    //                 messages: newMessages
-    //             }
-    //         } else {
-    //             return user
-    //         }
-    //     })
-    //     setUsers(newUsers)
-    // }
+    
+    const sendMessage = () => {
+        const index = contactList.id.findIndex(id);
+        contactList[index].messages.push({text: message, date: new Date.now()});
+
+    }
 
     return (
         <View>
@@ -36,8 +28,9 @@ const SendMessage = ({ id }) => {
             />
             <View style={styles.container}>
                 <IconEntypo name="attachment" style={{ marginTop: 20, marginLeft: 20 }} size={25} />
-                <TextInput placeholder='write a message' style={styles.messagebox} />
+                <TextInput placeholder='write a message' style={styles.messagebox}  onChangeText={text => setMessage(text)}/>
                 <IconSimpleLineIcons style={{ marginTop: 15, marginRight: 20 }} size={25} name="microphone" />
+                <IconIonicons style={{ marginTop: 15, marginRight: 20 }} size={25} name="send" onPress={()=>sendMessage()}/>
             </View>
         </View>
 

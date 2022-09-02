@@ -10,7 +10,7 @@ const UserProvider = ({ children }) => {
         <UserContext.Provider
             value={{
                 user: userState,
-                setUser: setUserState
+                setUser: setUserState,
             }}>
             {children}
         </UserContext.Provider>
