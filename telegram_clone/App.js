@@ -1,12 +1,15 @@
 
 import React from 'react';
-import LoginStackNavigator from './src/navigator/LoginStackNavigator'
+import StackNavigator from './src/navigator/StackNavigator';
+import ThemeProvider from './src/providers/ThemeProvider';
 
 
 const App = () => {
 
   return (
-    <LoginStackNavigator/>
+    <ThemeProvider>
+      <StackNavigator />
+    </ThemeProvider>
   );
 };
 

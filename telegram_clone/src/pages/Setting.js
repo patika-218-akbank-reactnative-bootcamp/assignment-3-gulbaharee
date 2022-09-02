@@ -2,8 +2,12 @@ import React from 'react';
 import { View, Text, StyleSheet, Image, Pressable } from 'react-native';
 import IconFoundation from 'react-native-vector-icons/Foundation';
 import IconIonicons from 'react-native-vector-icons/Ionicons';
+import { useNavigation } from '@react-navigation/native';
+
 
 const Setting = () => {
+    const { navigate } = useNavigation();
+
     return (
         <View style={styles.container}>
             <View style={styles.info}>
@@ -12,12 +16,12 @@ const Setting = () => {
                 <Text style={styles.userInfo}>xxx-xxx-xx-xx @username</Text>
             </View>
             <View style={styles.settings}>
-                <Pressable style={styles.button} title='Theme'>
+                <Pressable style={styles.button} title='Theme' onPress={()=>navigate('Theme')}>
                     <IconFoundation style={{ marginTop: 15, marginRight: 20, color:"green" }} size={25} name="contrast" />
                     <Text style={styles.buttonText}>Theme</Text>
                     <IconIonicons name="chevron-forward" style={{ marginTop: 15, marginLeft: 10 }} size={25} />
                 </Pressable>
-                <Pressable style={styles.button} title='Settings'>
+                <Pressable style={styles.button} title='Settings' onPress={()=>navigate('UpdateSetting')}>
                     <IconIonicons style={{ marginTop: 15, marginRight: 20 , color:"purple"}} size={25} name="settings" />
                     <Text style={styles.buttonText}>Settings</Text>
                     <IconIonicons name="chevron-forward" style={{ marginTop: 15, marginLeft: 10 }} size={25} />
