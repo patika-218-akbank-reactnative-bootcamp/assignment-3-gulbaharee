@@ -10,9 +10,9 @@ const Tab = createBottomTabNavigator();
 const BottomNavigator = () => {
     return(
         <Tab.Navigator>
-            <Tab.Screen name="MessageList" component={MessageList}/>
-            <Tab.Screen name="ContactList" component={ContactList}/>
-            <Tab.Screen name="Setting" component={Setting}/>
+            <Tab.Screen name="MessageList" options={{title:"Chats"}} component={MessageList}/>
+            <Tab.Screen name="ContactList" options={{title:"Contacts"}} component={ContactList}/>
+            <Tab.Screen name="Setting" options={{title:"Settings"}} component={Setting}/>
         </Tab.Navigator>
     )
 }
