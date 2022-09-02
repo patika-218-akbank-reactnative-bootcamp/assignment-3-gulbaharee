@@ -10,6 +10,7 @@ const App = () => {
     <ThemeProvider>
       <StackNavigator />
     </ThemeProvider>
+
   );
 };
 
