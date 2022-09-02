@@ -72,7 +72,7 @@ const styles = StyleSheet.create(
         },
         button:{
             backgroundColor:"blue",
-            marginTop:30,
+            marginTop:40,
         }
     }
 )

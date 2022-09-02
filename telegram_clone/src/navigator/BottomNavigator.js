@@ -4,15 +4,22 @@ import { createBottomTabNavigator } from '@react-navigation/bottom-tabs';
 import ContactList from '../pages/ContactList';
 import Setting from '../pages/Setting';
 import MessageList from '../pages/MessageList';
+import { Button } from 'react-native';
+import Icon from 'react-native-vector-icons/AntDesign';
 
 const Tab = createBottomTabNavigator();
 
 const BottomNavigator = () => {
-    return(
+    return (
         <Tab.Navigator>
-            <Tab.Screen name="MessageList" options={{title:"Chats"}} component={MessageList}/>
-            <Tab.Screen name="ContactList" options={{title:"Contacts"}} component={ContactList}/>
-            <Tab.Screen name="Setting" options={{title:"Settings"}} component={Setting}/>
+            <Tab.Screen name="ContactList"
+                options={{
+                    title: "Contacts",
+                    headerLeft: () => <Button title='Sort' style={{ color: 'rgb(0, 136, 204)' }} />,
+                    headerRight: () => <Icon name="plus" size={20} style={{ marginRight: 20, color: 'rgb(0, 136, 204)' }} />
+                }} component={ContactList} />
+            <Tab.Screen name="MessageList" options={{ title: "Chats" }} component={MessageList} />
+            <Tab.Screen name="Setting" options={{ title: "Settings" }} component={Setting} />
         </Tab.Navigator>
     )
 }
