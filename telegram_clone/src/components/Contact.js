@@ -2,7 +2,7 @@ import React from 'react';
 import { View, Text, StyleSheet, Image } from 'react-native';
 
 
-const Contact = ({ id, name }) => {
+const Contact = ({ id, name ,uri}) => {
     return (<View key={id}>
         <View style={styles.contactContainer}>
             <Image source={{ uri: "https://picsum.photos/200/200" }} style={styles.userImage} />
