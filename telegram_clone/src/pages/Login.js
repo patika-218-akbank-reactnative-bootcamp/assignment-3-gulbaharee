@@ -34,26 +34,26 @@ const Login = () => {
     return (
         <View style={ [styles.page,{backgroundColor: theme.backgroundColor }]}>
             <View style={styles.container}>
-                <Text style={styles.text}>Phone Number</Text>
+                <Text style={[styles.text,{color:theme.color}]}>Phone Number</Text>
                 <View style={styles.phoneNumber} >
                     <Picker style={styles.picker} selectedValue={selectedCode} onValueChange={(itemValue, itemIndex) => setSelectedCode(itemValue)}>
                         {CountryCodes.map((country) => (
                             <Picker.Item label={country.dial_code} value={country.dial_code} />
                         ))}
                     </Picker>
-                    <TextInput placeholder="5xx xxx xx xx" style={styles.phoneInput} keyboardType="phone-pad" onChangeText={text =>phone=selectedCode + text } />
+                    <TextInput placeholder="5xx xxx xx xx" style={[styles.phoneInput,{color:theme.color}]} keyboardType="phone-pad" onChangeText={text =>phone=selectedCode + text } />
                 </View>
                 <View style={{ marginTop: 20 }}>
-                    <Text style={styles.text}>First Name</Text>
-                    <TextInput style={styles.RegisterInfo} autoCapitalize="words"  onChangeText={text =>name=text } />
+                    <Text style={[styles.text,{color:theme.color}]}>First Name</Text>
+                    <TextInput style={[styles.RegisterInfo,{color:theme.color}]} autoCapitalize="words"  onChangeText={text =>name=text } />
                 </View>
                 <View style={{ marginTop: 20 }}>
-                    <Text style={styles.text}>Last Name</Text>
-                    <TextInput style={styles.RegisterInfo} onChangeText={text =>surname=text }/>
+                    <Text style={[styles.text,{color:theme.color}]}>Last Name</Text>
+                    <TextInput style={[styles.RegisterInfo,{color:theme.color}]} onChangeText={text =>surname=text }/>
                 </View>
                 <View style={{ marginTop: 20 }}>
-                    <Text style={styles.text}>Username</Text>
-                    <TextInput style={styles.RegisterInfo} onChangeText={text =>username=text } />
+                    <Text style={[styles.text,{color:theme.color}]}>Username</Text>
+                    <TextInput style={[styles.RegisterInfo,{color:theme.color}]} onChangeText={text =>username=text } />
                 </View>
                 <Button style={styles.button} title="Register" onPress={handleSubmit} />
             </View>

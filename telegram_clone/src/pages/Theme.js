@@ -11,7 +11,7 @@ const Theme = () => {
             <View style={[styles.container,
             { backgroundColor: theme.backgroundColor }]}>
                 <Pressable onPress={toggleTheme}>
-                    <Text style={styles.button}>Light / Dark</Text>
+                    <Text style={[styles.button,{color:theme.color}]}>Light / Dark</Text>
                 </Pressable>
             </View>
         </View>
